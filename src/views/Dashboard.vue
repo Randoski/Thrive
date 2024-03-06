@@ -1,3 +1,12 @@
+<script setup>
+// import {
+//     dashboardOne,
+//     dashboardTwo,
+//     splineAreaWidgetTwo,
+//     splineAreaWidgetThree,
+// } from '@/data/dashboard.v1.js'
+</script>
+
 <template>
     <div class="container mx-auto">
 
