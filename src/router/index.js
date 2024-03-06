@@ -29,21 +29,8 @@ const routes = [
         component: Layout,
         children: [
             {
-                path: '',
+                path: '/',
                 component: Dashboard,
-            },
-        ],
-    },
-
-    // Projects
-    {
-        path: '/projects',
-        name: 'Projects',
-        component: Layout,
-        children: [
-            {
-                path: '',
-                component: Projects,
             },
         ],
     },
