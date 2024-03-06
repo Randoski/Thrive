@@ -1,6 +1,5 @@
 <template>
     <div class="container mx-auto">
-
         <!-- Heading for Dashboard -->
         <div>
             <p class="text-xl font-bold">Dashboard</p>

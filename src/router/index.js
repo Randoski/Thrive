@@ -87,7 +87,6 @@ const routes = [
         ],
     },
 
-
     // Add Project
     {
         path: '/add-project',
