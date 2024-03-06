@@ -1,12 +1,17 @@
 <script setup>
+import { defineProps } from 'vue'
+
 const props = defineProps({
     noPadding: Boolean,
+    bgColor: String,
 })
+
 </script>
+
 <template>
-    <div class="card flex flex-col bg-white dark:bg-gray-800 dark:text-white">
+    <div :class="['card', bgColor ? 'bgColorClass' : '']">
         <slot name="cardHeader" />
-        <div class="card-body" :class="props.noPadding ? 'noPadding' : ''">
+        <div class="card-body" :class="{ 'noPadding': props.noPadding }">
             <slot />
         </div>
     </div>
@@ -14,7 +19,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .card {
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%), 0 1px 4px rgb(0 0 0 / 8%);
     // box-shadow:rgb(149 157 165 / 20%) 0px 8px 24px;
 
@@ -26,6 +31,10 @@ const props = defineProps({
         &.noPadding {
             padding: 0 !important;
         }
+    }
+
+    &.bgColorClass {
+        background-color: red; 
     }
 }
 </style>

@@ -33,81 +33,58 @@ let handleWindowResize = () => {
     }
 }
 </script>
+
 <template>
     <div class="side-content-wrap">
         <div class="side-content-wrap">
-            <div
-                :class="
-                    store.state.largeSidebar.sidebarToggleProperties
-                        .isSideNavOpen === true
-                        ? 'open'
-                        : ''
-                "
-                class="sidebar-left"
-            >
+            <div :class="
+                        store.state.largeSidebar.sidebarToggleProperties
+                            .isSideNavOpen === true
+                            ? 'open'
+                            : ''
+                    " class="sidebar-left">
                 <perfect-scrollbar>
                     <ul class="navigation-left">
-                        <!-- <div 
-                            @mouseenter="toggleSubMenu" 
-                            class="nav-item" 
-                            :class="selectedParentMenu == 'dashboards' ? 'active' : ''"
-                            data-item="dashboards"
-                            
-                        ></div> -->
-                        <router-link
-                            to="/dashboards/dashboard-version-one"
-                            tag="li"
-                            class="nav-item"
-                        >
+    
+                        <!-- Dashboard -->
+                        <router-link to="/dashboard" tag="li" class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Bar-Chart text-3xl"></i>
                                 <p>Dashboard</p>
                             </div>
                         </router-link>
-                        <router-link
-                            to="/components/button"
-                            tag="li"
-                            class="nav-item"
-                        >
+    
+                        <!-- Projects -->
+                        <router-link to="/projects" tag="li" class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Wallet text-3xl"></i>
                                 <p>Projects</p>
                             </div>
                         </router-link>
-                        <router-link
-                            to="/profile/profileTwo"
-                            tag="li"
-                            class="nav-item"
-                        >
+    
+                        <!-- Tasks -->
+                        <router-link to="/tasks" tag="li" class="nav-item">
+                            <div class="nav-item-hold">
+                                <i class="i-Find-User text-3xl"></i>
+                                <p>Tasks</p>
+                            </div>
+                        </router-link>
+    
+                        <!-- Clients -->
+                        <router-link to="/clients" tag="li" class="nav-item">
                             <div class="nav-item-hold">
                                 <i class="i-Find-User text-3xl"></i>
                                 <p>Clients</p>
                             </div>
                         </router-link>
-                        <router-link to="/signIn" tag="li" class="nav-item">
+    
+                        <!-- Income -->
+                        <router-link to="/income" tag="li" class="nav-item">
                             <div class="nav-item-hold">
-                                <i class="i-Checked-User text-3xl"></i>
-                                <p>Tasks</p>
-                            </div>
-                        </router-link>
-                        <router-link to="/signUp" tag="li" class="nav-item">
-                            <div class="nav-item-hold">
-                                <i class="i-Checked-User text-3xl"></i>
+                                <i class="i-Find-User text-3xl"></i>
                                 <p>Income</p>
                             </div>
                         </router-link>
-
-                        <a
-                            href="https://aatorx-vue-doc.vercel.app/"
-                            tag="a"
-                            class="nav-item"
-                            target="_blank"
-                        >
-                            <div class="nav-item-hold">
-                                <i class="i-File-Word text-3xl"></i>
-                                <p>Settings</p>
-                            </div>
-                        </a>
                     </ul>
                 </perfect-scrollbar>
             </div>
@@ -117,8 +94,7 @@ let handleWindowResize = () => {
 
 <style lang="scss" scoped>
 .nav-item.router-link-exact-active {
-    @apply text-purple-500;
-
+    @apply text-orange-500;
     &:after {
         content: '';
         position: absolute;
@@ -127,37 +103,38 @@ let handleWindowResize = () => {
         bottom: -15px;
         right: -15px;
         transform: rotate(45deg);
-        @apply bg-purple-500;
+        @apply bg-orange-500;
     }
 }
+
 .submenuLi {
     &:hover {
         .submenuli-icon {
-            color: #8b5cf6;
+            color: #FF9900;
         }
     }
     .submenuli-icon {
         color: #9ca3af;
     }
 }
+
 .submneu-nested-link {
     padding: 0 !important;
     color: #000 !important;
     &:hover {
         background-color: transparent !important;
-        color: #8b5cf6 !important;
+        color: #FF9900 !important;
     }
 }
+
 .side-content-wrap {
     .sidebar-left {
         position: fixed;
         top: 80px;
         left: -120px;
         width: 120px;
-
         background: #fff;
-        box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.06),
-            0 1px 4px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.08);
         z-index: 90;
         transition: all 0.24s ease-in-out;
         &.open {
@@ -183,7 +160,7 @@ let handleWindowResize = () => {
                 cursor: pointer;
                 &:hover {
                     .nav-item-hold {
-                        @apply text-purple-500;
+                        @apply text-orange-500;
                     }
                     &:after {
                         content: '';
@@ -193,13 +170,11 @@ let handleWindowResize = () => {
                         bottom: -15px;
                         right: -15px;
                         transform: rotate(45deg);
-                        @apply bg-purple-500;
+                        @apply bg-orange-500;
                     }
                 }
-
                 &.active {
-                    @apply text-purple-500;
-
+                    @apply text-orange-500;
                     &:after {
                         content: '';
                         position: absolute;
@@ -208,7 +183,7 @@ let handleWindowResize = () => {
                         bottom: -15px;
                         right: -15px;
                         transform: rotate(45deg);
-                        @apply bg-purple-500;
+                        @apply bg-orange-500;
                     }
                 }
                 border-bottom: 1px solid #dee2e6;
@@ -233,7 +208,6 @@ let handleWindowResize = () => {
         padding: 0.75rem 0;
         transition: all 0.24s ease-in-out;
         background: #fff;
-
         &.open {
             left: 120px;
             transition: all 0.24s ease-in-out;
@@ -256,7 +230,6 @@ let handleWindowResize = () => {
                             transition: all 0.3s ease-in;
                         }
                     }
-
                     a {
                         .dd-arrow {
                             margin-left: auto !important;
@@ -264,13 +237,6 @@ let handleWindowResize = () => {
                         }
                     }
                 }
-
-                // &.active {
-                //     a {
-                //         background-color: #f3f4f6;
-                //         @apply text-purple-500;
-                //     }
-                // }
                 a {
                     text-transform: capitalize;
                     display: flex;
@@ -281,10 +247,10 @@ let handleWindowResize = () => {
                     transition: 0.15s all ease-in;
                     &:hover {
                         background-color: #f3f4f6;
-                        @apply text-purple-500;
+                        @apply text-orange-500;
                     }
                     &.router-link-active.router-link-exact-active {
-                        @apply text-purple-500;
+                        @apply text-orange-500;
                     }
                 }
                 ul.submenu {
@@ -292,7 +258,6 @@ let handleWindowResize = () => {
                     display: none;
                     max-height: 0px;
                     transition: all 0.3s ease-in;
-
                     &.open {
                         display: block;
                         transition: all 0.3s ease-in;
