@@ -1,13 +1,31 @@
 <template>
     <div>
-        <p>This is the landing page without the Layouts</p>
-        <router-link to="/dashboard">Dashboard</router-link>
+        <Navbar />
+        <HeroSection />
+        <HeroSection3 />
+        <Faq />
+        <HeroSection2 />
+        <Footer />
     </div>
 </template>
 
 <script>
-export default {}
+import Navbar from '../components/Navbar.vue'
+import HeroSection from '../components/HeroSection.vue'
+import HeroSection2 from '../components/HeroSection2.vue'
+import HeroSection3 from '../components/HeroSection3.vue'
+import Faq from '../components/Faq.vue'
+import Footer from '../components/Footer.vue'
+
+export default {
+    components: {
+        Navbar,
+        HeroSection,
+        HeroSection2,
+        HeroSection3,
+        Faq,
+        Footer,
+    },
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
