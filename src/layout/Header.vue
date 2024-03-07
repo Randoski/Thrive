@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref, watch, watchEffect } from 'vue'
 import { Switch } from '@headlessui/vue'
-import HeaderSearch from '../components/HeaderSearch.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { useStore } from 'vuex'
 
@@ -338,7 +337,7 @@ const sideBarToggle = () => {
                 </MenuItems>
             </Menu>
 
-            <HeaderSearch />
+           
         </div>
         <div class="flex items-center">
             <!-- notification-dropdown  -->

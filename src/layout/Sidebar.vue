@@ -61,6 +61,14 @@ let handleWindowResize = () => {
                                 <p>Projects</p>
                             </div>
                         </router-link>
+                        
+                        <!-- Income -->
+                        <router-link to="/income" tag="li" class="nav-item">
+                            <div class="nav-item-hold">
+                                <i class="i-Find-User text-3xl"></i>
+                                <p>Income</p>
+                            </div>
+                        </router-link>
     
                         <!-- Tasks -->
                         <router-link to="/tasks" tag="li" class="nav-item">
@@ -78,13 +86,6 @@ let handleWindowResize = () => {
                             </div>
                         </router-link>
     
-                        <!-- Income -->
-                        <router-link to="/income" tag="li" class="nav-item">
-                            <div class="nav-item-hold">
-                                <i class="i-Find-User text-3xl"></i>
-                                <p>Income</p>
-                            </div>
-                        </router-link>
                     </ul>
                 </perfect-scrollbar>
             </div>

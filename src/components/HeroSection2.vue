@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="bg-white">
+        <section class="bg-gray-100">
             <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-sm text-center">
                     <!-- Heading Text -->
