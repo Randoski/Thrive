@@ -19,14 +19,17 @@
                 >
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <!-- Text Header -->
-                        <h1
+                        <button
                             class="text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl"
                         >
                             Create an account
-                        </h1>
+                        </button>
 
                         <!-- Form -->
-                        <form class="space-y-4 md:space-y-6" action="#">
+                        <form
+                            class="space-y-4 md:space-y-6"
+                            @submit.prevent="register"
+                        >
                             <!-- Email Address -->
                             <div>
                                 <label
@@ -37,10 +40,8 @@
                                 <input
                                     type="email"
                                     name="email"
-                                    id="email"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                                    placeholder="name@mail.com"
-                                    required=""
+                                    v-model="name"
                                 />
                             </div>
 
@@ -54,38 +55,12 @@
                                 <input
                                     type="password"
                                     name="password"
-                                    id="password"
-                                    placeholder="••••••••"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                                    required=""
+                                    v-model="password"
                                 />
                             </div>
 
-                            <!-- Remember & Forgot Password -->
-                            <div class="flex items-center justify-between">
-                                <!-- Remember Me -->
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input
-                                            id="remember"
-                                            aria-describedby="remember"
-                                            type="checkbox"
-                                            class="w-4 h-4 border border-primary rounded bg-primary focus:ring-3 focus:ring-primary"
-                                            required=""
-                                        />
-                                    </div>
-
-                                    <div class="ml-3 text-sm">
-                                        <label
-                                            for="remember"
-                                            class="text-gray-500"
-                                            >Accept Term & Conditions</label
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Sign In -->
+                            <!-- Create an Account-->
                             <button
                                 type="submit"
                                 class="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -109,4 +84,6 @@
         </section>
     </div>
 </template>
+
+
 

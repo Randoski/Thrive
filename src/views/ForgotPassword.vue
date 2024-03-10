@@ -18,12 +18,11 @@
                     class="w-full bg-white rounded-lg shadow mt-8 sm:max-w-md xl:p-0"
                 >
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <!-- Text Header -->
-                        <h1
+                        <button
                             class="text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl"
                         >
                             Reset Your Password
-                        </h1>
+                        </button>
 
                         <!-- Form -->
                         <form class="space-y-4 md:space-y-6" action="#">

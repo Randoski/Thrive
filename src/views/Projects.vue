@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <!-- Heading for Projects -->
         <div>
-            <div class="relative overflow-hidden bg-primary rounded-md">
+            <div class="relative overflow-hidden bg-primary rounded-lg border-prima">
                 <div
                     class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4"
                 >
@@ -31,14 +31,14 @@
                                 d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"
                             />
                         </svg>
-                        Add  new Project
+                        Add new Project
                     </button>
                 </div>
             </div>
         </div>
 
-         <!-- Search -->
-         <div class="relative w-full mt-4">
+        <!-- Search -->
+        <div class="relative w-full mt-4">
             <div
                 class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
             >
@@ -72,29 +72,27 @@
                     <!-- Project Container -->
                     <div class="p-5 bg-orange-50 rounded-lg">
                         <!-- Project Name -->
-                        <h5
-                            class="font-extrabold tracking-tight text-gray-500"
-                        >
+                        <h5 class="font-extrabold tracking-tight text-gray-500">
                             Sparkles Dev
                         </h5>
 
                         <!-- Project Owner -->
-                        <p class=" text-xs text-gray-500">Newton & Co</p>
+                        <p class="text-xs text-gray-500">Newton & Co</p>
 
                         <!-- Project Description -->
-                        <p class="mt-3 mb-4 text-gray-500 font-small">
+                        <p class="mt-3 mb-4 text-gray-500 text-xs">
                             Bonnie drives the technical strategy of the flowbite
                             platform and brand.
                         </p>
 
                         <div
-                            class="flex justify-between items-center space-x-4 sm:mt-0 text-gray-500"
+                            class="flex justify-between items-center space-x-4 sm:mt-0 text-gray-500 "
                         >
                             <!-- Other Project Info -->
                             <div class="flex gap-5 text-xs">
-                                <p>Button</p>
-                                <p>Button</p>
-                                <p>Button</p>
+                                <small class="bg-red-200 text-red-500 px-1 rounded-sm font-bold">Button</small>
+                                <small class="bg-blue-200 text-blue-500 px-1 rounded-sm font-bold">Button</small>
+                                <small class="bg-green-200 text-green-500 px-1 rounded-sm font-bold">Button</small>
                             </div>
 
                             <!-- Completion Percentage -->

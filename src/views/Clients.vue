@@ -12,7 +12,7 @@ onMounted(() => {
     <div class="relative overflow-hidden rounded-md">
         <!-- Page Header -->
         <div>
-            <div class="relative overflow-hidden bg-primary sm:rounded-lg">
+            <div class="relative overflow-hidden bg-primary rounded-lg border-prima">
                 <div
                     class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4"
                 >

@@ -109,7 +109,7 @@ onMounted(() => {
         <!-- Pending  Task -->
         <section class="antialiased mt-10">
             <div class="mx-auto max-w-screen-xl">
-                <div class="bg-white relative overflow-hidden">
+                <div class="relative overflow-hidden card">
                     <div
                         class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4"
                     >
@@ -965,3 +965,11 @@ Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boo
         </div>
     </div>
 </template>
+
+
+<style scoped>
+.card {
+    border-radius: 5px;
+    box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%), 0 1px 4px rgb(0 0 0 / 8%);
+}
+</style>

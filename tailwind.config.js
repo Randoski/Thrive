@@ -9,7 +9,7 @@ module.exports = {
                 primary: '#FF9900',
                 success: '#10b981',
                 danger: '#ef4444',
-                warning: '#f59e0b',
+                warning: '#ff9e0b',
                 info: '#3b82f6',
                 light: '#6b7280',
                 dark: '#111827',

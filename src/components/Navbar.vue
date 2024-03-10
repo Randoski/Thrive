@@ -7,7 +7,7 @@
                     class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
                 >
                     <!-- Logo -->
-                    <router-link to="/" class="flex items-center">
+                    <router-link to="/" class="flex items-center w-24">
                         <img
                             src="../assets/images/Thrive.svg"
                             class="mr-3 h-6 sm:h-9"
@@ -26,7 +26,7 @@
                         <!-- Get Started -->
                         <router-link
                             to="/register"
-                            class="text-white bg-primary hover:bg-orange-600 focus:ring-4 focus:ring-transparent font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            class="text-white bg-primary hover:bg-warning focus:ring-4 focus:ring-transparent font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                             >Get started</router-link
                         >
                     </div>

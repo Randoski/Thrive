@@ -9,7 +9,7 @@
                     <img
                         src="../assets/logo.png"
                         alt="Thrive Logo"
-                        class="w-16 h-16"
+                        class="w-12 h"
                     />
                 </router-link>
 
@@ -61,44 +61,21 @@
                                 />
                             </div>
 
-                            <!-- Remember & Forgot Password -->
-                            <div class="flex items-center justify-between">
-                                <!-- Remember Me -->
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input
-                                            id="remember"
-                                            aria-describedby="remember"
-                                            type="checkbox"
-                                            class="w-4 h-4 border border-primary rounded bg-primary focus:ring-3 focus:ring-primary"
-                                            required=""
-                                        />
-                                    </div>
+                            <!-- Forgot Password -->
+                            <router-link
+                                to="/forgot-password"
+                                class="text-sm font-medium text-gray-500 hover:underline item-center float-right"
+                                >Forgot password?</router-link
+                            >
 
-                                    <div class="ml-3 text-sm">
-                                        <label
-                                            for="remember"
-                                            class="text-gray-500"
-                                            >Remember me</label
-                                        >
-                                    </div>
-                                </div>
-
-                                <!-- Forgot Password -->
-                                <router-link
-                                    to="/forgot-password"
-                                    class="text-sm font-medium text-primary hover:underline"
-                                    >Forgot password?</router-link
-                                >
-                            </div>
-
-                            <!-- Login -->
+                            <!-- Sign in -->
                             <button
                                 type="submit"
                                 class="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                             >
-                                Sign in
+                                Sign In
                             </button>
+
                             <div class="text-sm font-light text-gray-500">
                                 Don’t have an account yet?
                                 <router-link
