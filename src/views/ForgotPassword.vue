@@ -25,7 +25,10 @@
                         </button>
 
                         <!-- Form -->
-                        <form class="space-y-4 md:space-y-6" action="#">
+                        <form
+                            class="space-y-4 md:space-y-6"
+                            @submit.prevent="resetPassword"
+                        >
                             <!-- Email Address -->
                             <div>
                                 <label
@@ -34,21 +37,22 @@
                                     >Email</label
                                 >
                                 <input
-                                    type="email"
                                     name="email"
-                                    id="email"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                                    placeholder="name@mail.com"
-                                    required=""
+                                    v-model="email"
                                 />
                             </div>
 
                             <!-- Reset Your Password -->
                             <button
                                 type="submit"
-                                class="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                class="w-full text-white bg-primary hover:bg-warning focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                :disabled="resetting"
                             >
-                                Reset Your Password
+                                <span v-if="resetting"
+                                    ><i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                                <span v-else>Reset Your Password</span>
                             </button>
 
                             <!-- Log In -->
@@ -56,7 +60,7 @@
                                 Remember Your Password?
                                 <router-link
                                     to="/login"
-                                    class="font-medium text-primary hover:underline"
+                                    class="font-medium text-primary hover:underline hover:text-warning"
                                     >Login</router-link
                                 >
                             </div>
@@ -67,4 +71,66 @@
         </section>
     </div>
 </template>
+
+<script>
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { notify } from '@kyvg/vue3-notification'
+
+export default {
+    data() {
+        return {
+            email: '',
+            resetting: false,
+        }
+    },
+
+    methods: {
+        // Email Validation Logic
+        isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            return emailRegex.test(email)
+        },
+
+        // Reset Password
+        resetPassword() {
+            // Email Validation
+            if (!this.isValidEmail(this.email)) {
+                notify({
+                    title: 'Invalid E-mail Format',
+                    text: 'Please enter a valid email address',
+                    type: 'error',
+                })
+                return
+            }
+
+            // Reset Password
+            const auth = getAuth()
+            this.resetting = true
+            sendPasswordResetEmail(auth, this.email)
+                .then(() => {
+                    notify({
+                        title: 'Email Sent!',
+                        text:
+                            'A Password reset email has been sent to ' +
+                            this.email,
+                        type: 'success',
+                    })
+                    this.$router.push('/login')
+                })
+
+                // Firebase Error
+                .catch((error) => {
+                    const errorCode = error.code
+                    const errorMessage = error.message
+                    notify({
+                        title: 'Password reset Error',
+                        text: errorMessage,
+                        type: 'error',
+                    })
+                    this.resetting = false
+                })
+        },
+    },
+}
+</script>
 

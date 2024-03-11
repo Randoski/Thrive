@@ -38,10 +38,9 @@
                                     >Email</label
                                 >
                                 <input
-                                    type="email"
                                     name="email"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                                    v-model="name"
+                                    v-model="email"
                                 />
                             </div>
 
@@ -63,9 +62,13 @@
                             <!-- Create an Account-->
                             <button
                                 type="submit"
-                                class="w-full text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                class="w-full text-white bg-primary hover:bg-warning focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                :disabled="registering"
                             >
-                                Create an Account
+                                <span v-if="registering"
+                                    ><i class="fas fa-spinner fa-spin"></i>
+                                </span>
+                                <span v-else>Create an Account</span>
                             </button>
 
                             <!-- Log In -->
@@ -73,7 +76,7 @@
                                 Already have an account?
                                 <router-link
                                     to="/login"
-                                    class="font-medium text-primary hover:underline"
+                                    class="font-medium text-primary hover:underline hover:text-warning"
                                     >Login</router-link
                                 >
                             </div>
@@ -85,5 +88,74 @@
     </div>
 </template>
 
+<script>
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { notify } from '@kyvg/vue3-notification'
 
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            registering: false,
+        }
+    },
 
+    methods: {
+        // Email Validation Logic
+        isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            return emailRegex.test(email)
+        },
+
+        // Register
+        register() {
+            // Email Validation
+            if (!this.isValidEmail(this.email)) {
+                notify({
+                    title: 'Invalid E-mail Format',
+                    text: 'Please enter a valid email address',
+                    type: 'error',
+                })
+                return
+            }
+
+            // Password Length Validation
+            if (this.password.length <= 7) {
+                notify({
+                    title: 'Password is too short',
+                    text: 'Password must be at least 8 characters long',
+                    type: 'error',
+                })
+                return
+            }
+
+            // Register
+            const auth = getAuth()
+            this.registering = true
+            createUserWithEmailAndPassword(auth, this.email, this.password)
+                .then((userCredential) => {
+                    const user = userCredential.user
+                    notify({
+                        title: 'Registration Successful!',
+                        text: 'You would be redirected to your Dashboard Shortly!',
+                        type: 'success',
+                    })
+                    this.$router.push('/dashboard')
+                })
+
+                // Firebase Errors
+                .catch((error) => {
+                    const errorCode = error.code
+                    const errorMessage = error.message
+                    notify({
+                        title: 'Registration Error',
+                        text: errorMessage,
+                        type: 'error',
+                    })
+                    this.registering = false
+                })
+        },
+    },
+}
+</script>

@@ -336,8 +336,6 @@ const sideBarToggle = () => {
                     </div>
                 </MenuItems>
             </Menu>
-
-           
         </div>
         <div class="flex items-center">
             <!-- notification-dropdown  -->
@@ -421,34 +419,11 @@ const sideBarToggle = () => {
                     <div class="">
                         <MenuItem v-slot="{ active }">
                             <button
+                                @click="logOut"
                                 :class="[
                                     active
-                                        ? 'bg-purple-500 text-white'
-                                        : 'text-gray-900',
-                                    'group flex  items-center w-full px-4 py-2 text-sm',
-                                ]"
-                            >
-                                Account Settings
-                            </button>
-                        </MenuItem>
-                        <MenuItem v-slot="{ active }">
-                            <button
-                                :class="[
-                                    active
-                                        ? 'bg-purple-500 text-white'
-                                        : 'text-gray-900',
-                                    'group flex  items-center w-full px-4 py-2 text-sm',
-                                ]"
-                            >
-                                Billing History
-                            </button>
-                        </MenuItem>
-                        <MenuItem v-slot="{ active }">
-                            <button
-                                :class="[
-                                    active
-                                        ? 'bg-purple-500 text-white'
-                                        : 'text-gray-900',
+                                        ? 'bg-primary text-white'
+                                        : 'text-gray-700',
                                     'group flex  items-center w-full px-4 py-2 text-sm',
                                 ]"
                             >
@@ -481,3 +456,36 @@ ul.links {
     }
 }
 </style>
+
+
+<script>
+import { getAuth, signOut } from 'firebase/auth'
+import { notify } from '@kyvg/vue3-notification'
+
+export default {
+    methods: {
+        // Logout
+        logOut() {
+            const auth = getAuth()
+            signOut(auth)
+                .then(() => {
+                    notify({
+                        title: 'Logged out!',
+                        text: 'You have Successfully logged out of your account',
+                        type: 'success',
+                    })
+                    this.$router.push('/login')
+                })
+
+                // Firebase Error
+                .catch((error) => {
+                    notify({
+                        title: 'Logout Error',
+                        text: errorMessage,
+                        type: 'error',
+                    })
+                })
+        },
+    },
+}
+</script>
