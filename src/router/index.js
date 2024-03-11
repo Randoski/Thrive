@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Layout from '../layout/index.vue'
 import NotFound from '../views/NotFound.vue'
 import store from '../store'
@@ -27,6 +28,7 @@ const routes = [
         path: '/dashboard',
         name: 'Dashboard',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -40,6 +42,7 @@ const routes = [
         path: '/projects',
         name: 'Projects',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -53,6 +56,7 @@ const routes = [
         path: '/tasks',
         name: 'Tasks',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -66,6 +70,7 @@ const routes = [
         path: '/clients',
         name: 'Clients',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -79,6 +84,7 @@ const routes = [
         path: '/Income',
         name: 'Income',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -92,6 +98,7 @@ const routes = [
         path: '/add-project',
         name: 'AddProject',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -105,6 +112,7 @@ const routes = [
         path: '/add-client',
         name: 'AddClient',
         component: Layout,
+        meta: { requiresAuth: true },
         children: [
             {
                 path: '',
@@ -160,6 +168,7 @@ const router = createRouter({
     },
     routes,
 })
+
 
 router.afterEach(() => {
     if (window.innerWidth <= 1200) {
