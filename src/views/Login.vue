@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="">
+    <section>
       <div
         class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
       >
@@ -10,7 +10,7 @@
         </router-link>
 
         <!-- Form Heading -->
-        <div class="w-full bg-white rounded-lg shadow mt-8 sm:max-w-md xl:p-0">
+        <div class="w-full rounded-lg mt-8 sm:max-w-md xl:p-0 border border-gray-100">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <!-- Text Header -->
             <h1
@@ -39,9 +39,9 @@
                   >Password</label
                 >
                 <input
-                  type="password"
                   name="password"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none block w-full p-2.5"
+                  type="password"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                   v-model="password"
                 />
               </div>
@@ -140,3 +140,10 @@ export default {
   },
 };
 </script>
+
+<style>
+input[type="password"] {
+  outline: none;
+  -webkit-appearance: none; /* For Safari and older versions of Chrome */
+}
+</style>

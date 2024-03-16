@@ -177,11 +177,11 @@ router.beforeEach((to, from, next) => {
 
     onAuthStateChanged(auth, (user) => {
         if (requiresAuth && !user) {
-            notify({
-                title: "Authentication Required!",
-                text: "You have to be Logged in to Access this page",
-                type: "error",
-              });
+            // notify({
+            //     title: "Authentication Required!",
+            //     text: "You have to be Logged in to Access this page",
+            //     type: "warn",
+            //   });
             next('/login');
         } else {
             next();
