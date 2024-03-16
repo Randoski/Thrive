@@ -19,14 +19,14 @@
                         <!-- Login -->
                         <router-link
                             to="/login"
-                            class="text-gray-00 hover:bg-gray-100 focus:ring-4 focus:ring-transparent font-bold rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            class="text-gray-600 hover:bg-gray-100 focus:ring-4 focus:ring-transparent font-bold rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                             >Login</router-link
                         >
 
                         <!-- Get Started -->
                         <router-link
                             to="/register"
-                            class="text-white bg-primary hover:bg-warning focus:ring-4 focus:ring-transparent font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            class="text-gray-700 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-transparent font-bold rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
                             >Get started</router-link
                         >
                     </div>

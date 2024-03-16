@@ -14,6 +14,8 @@ import AddClient from '../views/AddClient.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
+import { notify } from "@kyvg/vue3-notification";
+
 
 const routes = [
     // Landing Page
@@ -169,6 +171,23 @@ const router = createRouter({
     routes,
 })
 
+router.beforeEach((to, from, next) => {
+    const auth = getAuth();
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+    onAuthStateChanged(auth, (user) => {
+        if (requiresAuth && !user) {
+            // notify({
+            //     title: "Authentication Required!",
+            //     text: "You have to be Logged in to Access this page",
+            //     type: "warn",
+            //   });
+            next('/login');
+        } else {
+            next();
+        }
+    });
+});
 
 router.afterEach(() => {
     if (window.innerWidth <= 1200) {
